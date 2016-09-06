@@ -27,9 +27,9 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 
     # Make sure Redis is running, and can be stopped and started cleanly.
-  - sudo service mongod status
-  - sudo service mongod stop
-  - sudo service mongod start
+  - service mongod status
+  - service mongod stop
+  - service mongod start
 
 after_failure:
   - sudo cat /etc/mongod.conf
