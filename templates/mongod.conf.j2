@@ -1,0 +1,41 @@
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# Where and how to store data.
+storage:
+  dbPath: {{mongo_storage_dbpath}}
+  journal:
+    enabled: {{mongo_storage_journal_enabled}}
+#  engine:
+#  mmapv1:
+#  wiredTiger:
+
+# where to write logging data.
+systemLog:
+  destination: {{mongo_systemlog_destination}}
+  logAppend: {{mongo_systemlog_append}}
+  path: {{mongo_systemlog_path}}
+
+# network interfaces
+net:
+  port: {{mongo_network_port}}
+  bindIp: {{ mongo_network_interfaces | join(",") }}
+
+
+#processManagement:
+
+#security:
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options:
+
+#auditLog:
+
+#snmp:
