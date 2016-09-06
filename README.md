@@ -1,38 +1,43 @@
-Role Name
+Ansible Role: Mongodb
 =========
 
-A brief description of the role goes here.
+Installs [Mongodb](https://www.mongodb.com) on RHEL/CentOS or Debian/Ubuntu.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
-Role Variables
---------------
+## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-Dependencies
-------------
+	mongo_storage_dbpath: /var/lib/mongodb
+	mongo_storage_journal_enabled: "true"
+	
+	# System log
+	mongo_systemlog_destination: "file"
+	mongo_systemlog_append: "true"
+	mongo_systemlog_path: /var/log/mongodb/mongod.log
+	
+	# Network
+	mongo_network_port: 27017
+	mongo_network_interfaces:
+  		- 127.0.0.1
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Dependencies
 
-Example Playbook
-----------------
+None.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## Example Playbook
 
-    - hosts: servers
+    - hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+        - { role: d4rkstar.mongodb }
 
-License
--------
+## License
 
-BSD
+GPLv3
 
-Author Information
-------------------
+## Author Information
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+This role was created in 2016 by [Bruno Salzano](http://brunosalzano.com/).
