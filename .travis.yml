@@ -37,9 +37,9 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Make sure Mongo is running, and can be stopped and started cleanly.
-  - service mongod status
-  - service mongod stop
-  - service mongod start
+  - sudo service mongod status
+  - sudo service mongod stop
+  - sudo service mongod start
 
 after_failure:
   - sudo cat /etc/mongod.conf
