@@ -26,5 +26,13 @@ script:
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 
+    # Make sure Redis is running, and can be stopped and started cleanly.
+  - sudo service mongod status
+  - sudo service mongod stop
+  - sudo service mongod start
+
+after_failure:
+  - sudo cat /etc/mongod.conf
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
