@@ -3,6 +3,8 @@ Ansible Role: Mongodb
 
 Installs [Mongodb](https://www.mongodb.com) on RHEL/CentOS or Debian/Ubuntu.
 
+[![Build Status](https://travis-ci.org/d4rkstar/ansible-role-mongodb.svg?branch=master)](https://travis-ci.org/d4rkstar/ansible-role-mongodb)
+
 ## Requirements
 
 None
