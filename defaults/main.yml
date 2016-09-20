@@ -1,6 +1,6 @@
 ---
 # Storage
-mongo_storage_dbpath: /var/lib/mongodb
+mongo_storage_dbpath: /var/lib/mongo
 mongo_storage_journal_enabled: "true"
 
 # System log

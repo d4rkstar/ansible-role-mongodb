@@ -3,6 +3,12 @@
 # for documentation of all options, see:
 #   http://docs.mongodb.org/manual/reference/configuration-options/
 
+# where to write logging data.
+systemLog:
+  destination: {{mongo_systemlog_destination}}
+  logAppend: {{mongo_systemlog_append}}
+  path: {{mongo_systemlog_path}}
+
 # Where and how to store data.
 storage:
   dbPath: {{mongo_storage_dbpath}}
@@ -12,19 +18,16 @@ storage:
 #  mmapv1:
 #  wiredTiger:
 
-# where to write logging data.
-systemLog:
-  destination: {{mongo_systemlog_destination}}
-  logAppend: {{mongo_systemlog_append}}
-  path: {{mongo_systemlog_path}}
+# how the process runs
+processManagement:
+  fork: true  # fork and run in background
+  pidFilePath: /var/run/mongodb/mongod.pid  # location of pidfile
 
 # network interfaces
 net:
   port: {{mongo_network_port}}
   bindIp: {{ mongo_network_interfaces | join(",") }}
 
-
-#processManagement:
 
 #security:
 
@@ -34,7 +37,7 @@ net:
 
 #sharding:
 
-## Enterprise-Only Options:
+## Enterprise-Only Options
 
 #auditLog:
 
